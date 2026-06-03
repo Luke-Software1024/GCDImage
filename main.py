@@ -31,7 +31,7 @@ oscdimg_exec_input = ttk.Entry(tab_general, textvariable=oscdimg_exec)
 oscdimg_exec_input.grid(row=0, column=1)
 
 def open_filedialog_oe():
-    oscdimg_exec.set(filedialog.askopenfilename(filetypes=(("Executables", "*.exe"), ("All Files", "*.*"))))
+    oscdimg_exec.set(filedialog.askopenfilename(filetypes=(("Executables", "*.exe"), ("All Files", "*.*")), title="Select oscdimg.exe executable:"))
 oscdimg_exec_browse = ttk.Button(tab_general, text="Browse...", command=open_filedialog_oe)
 oscdimg_exec_browse.grid(row=0, column=2)
 
@@ -43,8 +43,20 @@ input_folder_input = ttk.Entry(tab_general, textvariable=input_folder)
 input_folder_input.grid(row=1, column=1)
 
 def open_filedialog_if():
-    input_folder.set(filedialog.askdirectory())
+    input_folder.set(filedialog.askdirectory(title="Select input folder:"))
 input_folder_browse = ttk.Button(tab_general, text="Browse...", command=open_filedialog_if)
 input_folder_browse.grid(row=1, column=2)
+
+output_image_label = ttk.Label(tab_general, text="Output image:")
+output_image_label.grid(row=2, column=0)
+
+output_image = tk.StringVar()
+output_image_input = ttk.Entry(tab_general, textvariable=output_image)
+output_image_input.grid(row=2, column=1)
+
+def open_filedialog_oi():
+    output_image.set(filedialog.asksaveasfilename(filetypes=(("Disc Images", "*.iso"), ("All Files", "*.*")), title="Select output image:"))
+output_image_browse = ttk.Button(tab_general, text="Browse...", command=open_filedialog_oi)
+output_image_browse.grid(row=2, column=2)
 
 window.mainloop()
