@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog
 
 window = tk.Tk()
-window.title("GOscdimg")
+window.title("GCDImage")
 
 tabs = ttk.Notebook(window)
 tab_general = ttk.Frame(window)
